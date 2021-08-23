@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
     <header>
-	<h1>旅シェア</h1>
+ <h1>旅シェア</h1>
 	<nav>
     <ul class="menu">
-	<a href="/"><li>ユーザー登録</li></a>
+  {!! link_to_route('signup.get', 'ユーザー登録', []) !!}
 	<a href="/"><li>ログイン</li></a>
 	<a href="/"><li>お問い合わせ</li></a>
 	</ul>
@@ -146,7 +147,7 @@
   
 </div>
 
-<ul class="example3">
+<ul class="pagenation">
 <li class="pre">前へ</li>
 <li class="this">1</li>
 <li><a href="page-2.html">2</a></li>

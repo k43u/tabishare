@@ -142,7 +142,7 @@ nav {
   background-color:#FF6633;
 }
 
-.example3 li {
+.pagenation li {
 display: inline-block;
 height:40px;line-height:40px;
 width:40px;text-align:center;
@@ -150,11 +150,11 @@ border:1px #ccc solid;color:#000053;
 border-radius: 5px / 5px;
 }
 
-.example3 .pre {background-color:#ccc;color:#333;}
-.example3 .this {background-color:#777;color:#fff;}
-.example3 li a{display:block;text-decoration: none;}
-.example3 li a:hover {color: #fff;text-decoration: none;background-color: #003396;}
-.example3 {justify-content:center;}
+.pagenation .pre {background-color:#ccc;color:#333;}
+.pagenation .this {background-color:#777;color:#fff;}
+.pagenation  li a{display:block;text-decoration: none;}
+.pagenation li a:hover {color: #fff;text-decoration: none;background-color: #003396;}
+.pagenation {justify-content:center;}
 
 
 footer{
