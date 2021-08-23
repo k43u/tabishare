@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
-  @include("layouts.navbar")
-  
+
+@include("layouts.navbar")
+
   <body>
-    <p class="lead-form">ユーザー登録</p>
+    <p class="lead-form">ログイン</p>
 
 <form>
   <link rel="stylesheet" href="{{  asset('css/register.css') }}" />
   
-   {!! Form::open(['route' => 'signup.post']) !!}
-  <div class="item">
-    <label class="label">ユーザー名<br>（ニックネーム）</label>
-    <input class="inputs" type="text" name="name">
-  </div>
-  
+   {!! Form::open(['route' => 'login.post']) !!}
+   
   <div class="item">
     <label class="label">メールアドレス</label>
     <input class="inputs" type="email" name="email">
@@ -30,37 +27,15 @@
   </div>
 
   <div class="btn-area">
-    {!! Form::submit('登録', ['class' => 'my-button']) !!}
+    {!! Form::submit('ログイン') !!}
   </div>
 
 </form>
  {!! Form::close() !!}
+ 
   </body>
   
   @include("layouts.footer")
   
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-   
-
-
 

@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-    <header>
- <h1>旅シェア</h1>
-	<nav>
-    <ul class="menu">
-  {!! link_to_route('signup.get', 'ユーザー登録', []) !!}
-	<a href="/"><li>ログイン</li></a>
-	<a href="/"><li>お問い合わせ</li></a>
-	</ul>
-　　</nav>
-	</header>
-    <link rel="stylesheet" href="{{  asset('css/style.css') }}" />
-</head>
 
+@extends('layouts.app')
 
-
-<body>
-  
+@section('content')
+ <link rel="stylesheet" href="{{asset('css/style.css') }}" />
 <h2>みんなの旅一覧</h2>
 
 <div class="grid">
@@ -155,9 +139,9 @@
 <li><a href="page-2.html">次へ</a></li>
 </ul>
 
-</body>
 
-@include("parts.footer")
 
+@include("layouts.footer")
+@endsection
 
 </html>
