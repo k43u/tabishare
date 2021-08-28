@@ -7,8 +7,6 @@
     </head>
 
     <body>
-
-       
         @include('layouts.navbar')
 
         <div class="container">

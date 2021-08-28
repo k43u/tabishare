@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-@include("layouts.navbar")
-
-  <body>
+@section('content')
+  <link rel="stylesheet" href="{{asset('css/style.css') }}" />
     <p class="lead-form">ログイン</p>
 
-<form>
-  <link rel="stylesheet" href="{{  asset('css/register.css') }}" />
-  
+
    {!! Form::open(['route' => 'login.post']) !!}
    
   <div class="item">
@@ -18,24 +14,17 @@
   
   <div class="item">
     <label class="label">パスワード<br>(アルファベット8文字以上)</label>
-    <input class="inputs" type="email" name="email">
+    <input class="inputs" type="password" name="password">
   </div>
   
-  <div class="item">
-    <label class="label">パスワード<br>(確認用)</label>
-    <input class="inputs" type="email" name="email">
-  </div>
 
   <div class="btn-area">
-    {!! Form::submit('ログイン') !!}
+    {!! Form::submit('ログイン', ['class' => 'my-button'])!!}
   </div>
 
-</form>
  {!! Form::close() !!}
  
-  </body>
-  
-  @include("layouts.footer")
-  
+ @include("layouts.footer")
+@endsection
 </html>
 

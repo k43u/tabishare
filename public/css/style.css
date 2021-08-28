@@ -170,3 +170,47 @@ footer{
   font-weight: bold;
   font-size: 1.0rem;
 }
+
+.lead-form{
+  margin-top: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+form{
+  width:460px;
+  margin:0 auto;
+  margin-bottom: 100px;
+}
+.item{
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.label{
+  float: left;
+  margin-right: 25px;
+  width:135px;
+  padding-left: 10px;
+}
+.inputs{
+  float: left;
+  width:300px;
+}
+input[type="text"],input[type="email"]{
+  border: solid 1px #aaa;
+  border-radius:5px;
+  padding:10px;
+  font-size: 15px;
+}
+textarea{
+  border: solid 1px #aaa;
+  border-radius:5px;
+  padding: 10px;
+  height: 160px;
+  font-size: 15px;
+}
+
+.btn-area{
+  text-align: center;
+}
+
