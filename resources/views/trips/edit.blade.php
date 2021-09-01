@@ -19,11 +19,11 @@
       </div>
 
      {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
-     {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id], 'method' => 'delete']) !!}
-        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-   　 {!! Form::close() !!}
-     
    {!! Form::close() !!}
+   
+    {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id], 'method' => 'delete']) !!}
+        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
        
 
  

@@ -29,3 +29,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('trips', 'TripsController', ['only' => ['store', 'destroy']]);
     Route::get('yourtrips', 'TripsController@yourtrips')->name('trips.yourtrips');
 });
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('users/me', 'UsersController@edit')->name('users.edit');
+    Route::put('users/me', 'UsersController@update')->name('users.update');
+    // Route::resource('users', 'UsersController', ['only' => ['edit', 'update','destroy']]);
+});

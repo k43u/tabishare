@@ -112,6 +112,7 @@ class TripsController extends Controller
     {
         $trip = Trip::findOrFail($id);
         
+        $trip->title = $request->title;
         $trip->content = $request->content;
         $trip->save();
 

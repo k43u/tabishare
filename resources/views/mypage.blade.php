@@ -6,7 +6,6 @@
 <h2>マイページ<br><?php $user = Auth::user(); ?>
 {{ $user->name }} さん</h2>
 
-
 @include("trips.trips")
 
 
