@@ -10,6 +10,9 @@
       </figure>
        <div class="card__footer_01">
          <p class="card__text_01"> {!! link_to_route('trips.show', 'この旅の詳細を見る', ['trip' => $trip->id], ['class' => "button_01 -compact"]) !!}
+         @if (Auth::id() == $trip->user_id)
+          <p class="card__text_01"> {!! link_to_route('trips.edit', '編集する', ['trip' => $trip->id], ['class' => "button_01 -compact"]) !!}
+         @endif
        </div>
  </div>  
 @endforeach

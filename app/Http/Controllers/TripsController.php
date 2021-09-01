@@ -69,7 +69,7 @@ class TripsController extends Controller
             $trip->delete();
         }
 
-        return back();
+        return redirect('/');
     }
     
     public function show($id)
@@ -100,12 +100,23 @@ class TripsController extends Controller
    
    public function edit($id)
     {
-        //
+        $trip = Trip::findOrFail($id);
+
+        // メッセージ編集ビューでそれを表示
+        return view('trips.edit', [
+            'trip' => $trip,
+        ]);
     }
     
      public function update(Request $request, $id)
     {
-        //
+        $trip = Trip::findOrFail($id);
+        
+        $trip->content = $request->content;
+        $trip->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 
 }

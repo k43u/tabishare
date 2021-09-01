@@ -5,25 +5,29 @@
     <p class="lead-form">あなたの旅を編集する</p>
 
 
-   {!! Form::model($trip, ['route' => 'trips.store']) !!}
-       
+   {!! Form::model($trip, ['route' => ['trips.update', $trip->id,$trip->title,$trip->content], 'method' => 'put']) !!}
+     
       <div class="item">
         <label class="label">タイトル</label>
-        <input class="inputs" type="text" name="title">
+        <input class="inputs" type="text" name="title" value={{$trip->title}}>
       </div>
    
-   
+       
       <div class="item">
-       <label class="label">コメント(5000字以内)</label>
-     　<textarea name="content" rows="5" cols="50"></textarea>
-      </div>
-      
-      <div class="btn-area">
-          {!! Form::submit('投稿', ['class' => 'my-button'])!!}
+          <label class="label">コメント(5000字以内)</label>
+          <textarea name="content" rows="5" cols="50">{{ $trip->content }}</textarea>
       </div>
 
+     {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
+     {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id], 'method' => 'delete']) !!}
+        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+   　 {!! Form::close() !!}
+     
    {!! Form::close() !!}
+       
+
  
  @include("layouts.footer")
 @endsection
 </html>
+
