@@ -26,4 +26,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('trips', 'TripsController');
+    Route::resource('trips', 'TripsController', ['only' => ['store', 'destroy']]);
+    Route::get('yourtrips', 'TripsController@yourtrips')->name('trips.yourtrips');
 });

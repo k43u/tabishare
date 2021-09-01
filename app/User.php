@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function trips()
+    {
+        return $this->hasMany(Trip::class);
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('trips');
+    }
 }

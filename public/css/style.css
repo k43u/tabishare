@@ -47,7 +47,7 @@ li {
 
 .grid {
   display: grid;
-  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-columns:  repeat(4, 300px);
   gap: 15px;
   justify-content: center;
 }
@@ -208,9 +208,57 @@ textarea{
   padding: 10px;
   height: 160px;
   font-size: 15px;
+  overflow: scroll;
 }
 
 .btn-area{
   text-align: center;
 }
 
+button{
+display:inline-block;
+}
+
+.box14{
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: #d6ebff;
+    box-shadow: 0px 0px 0px 10px #d6ebff;
+    border: dashed 2px white;
+}
+.box14 p {
+    margin: 0; 
+    padding: 0;
+    font-size: 50px;
+    text-align:center;
+}
+.box18{
+    margin:2em 0;
+    position: relative;
+    padding: 0.25em 1em;
+    border: solid 2px #ffcb8a;
+    border-radius: 3px 0 3px 0;
+}
+.box18:before,.box18:after
+{
+    content: '';
+    position: absolute;
+    width:10px;
+    height: 10px;
+    border: solid 2px #ffcb8a;
+    border-radius: 50%;
+}
+.box18:after {
+    top:-12px;
+    left:-12px;
+}
+.box18:before {
+    bottom:-12px;
+    right:-12px;
+}
+.box18 p {
+    margin: 0; 
+    padding: 0;
+    font-size: 20px;
+    text-align:center;
+}
