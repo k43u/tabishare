@@ -24,14 +24,24 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::resource('trips', 'TripsController');
-    Route::resource('trips', 'TripsController', ['only' => ['store', 'destroy']]);
-    Route::get('yourtrips', 'TripsController@yourtrips')->name('trips.yourtrips');
-});
 
 Route::group(['middleware' => ['auth']], function () {
+       
+  Route::group(['prefix' => 'trips/{id}'], function () {
+           Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');
+           Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
+  });
+    Route::resource('trips', 'TripsController');
+    Route::get('yourtrips', 'TripsController@yourtrips')->name('trips.yourtrips');
     Route::get('users/me', 'UsersController@edit')->name('users.edit');
     Route::put('users/me', 'UsersController@update')->name('users.update');
-    // Route::resource('users', 'UsersController', ['only' => ['edit', 'update','destroy']]);
+    Route::get('favorite', 'TripsController@favorites')->name('trips.favorites');
 });
+
+//画像ファイルをアップロードするボタンを設置するページへのルーティング
+Route::get('/upload/image', 'ImageController@input');
+//画像ファイルをアップロードする処理のルーティング
+Route::post('/upload/image', 'ImageController@upload');
+//アップロードした画像ファイルを表示するページのルーティング
+Route::get('/output/image', 'ImageController@output');
+

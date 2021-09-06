@@ -2,13 +2,17 @@
 
 @section('content')
 
-  <div class="box14">
+    <div class="box3">
     <?php $user = Auth::user(); ?>
-    投稿者 {{ $user->name }}
-    <p>{{$trip->title}}</p>
-  </div>
+    <p>投稿者 {{ $user->name }}</P>
+    <h3>{{$trip->title}}</h3>
+    
+    @foreach ($user_images as $user_image)
+        <img src="{{ $user_image['image_url'] }}">
+        <br>
+    @endforeach
 　
-    <div class="box18">
+   
     <p>{{ $trip->content }}</p>
     </div>   
 

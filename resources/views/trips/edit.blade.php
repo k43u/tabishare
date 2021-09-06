@@ -7,6 +7,7 @@
 
    {!! Form::model($trip, ['route' => ['trips.update', $trip->id,$trip->title,$trip->content], 'method' => 'put']) !!}
      
+     
       <div class="item">
         <label class="label">タイトル</label>
         <input class="inputs" type="text" name="title" value={{$trip->title}}>
@@ -17,14 +18,26 @@
           <label class="label">コメント(5000字以内)</label>
           <textarea name="content" rows="5" cols="50">{{ $trip->content }}</textarea>
       </div>
+      
+      <form action="/upload/image" method="POST" enctype="multipart/form-data">
+   　　 @csrf
+　　　　<div class="box2">
+        <label for="photo">旅の写真</label>
+        <input type="file" class="form-control" name="file">
+    　　</div>
+      </form>
 
-     {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
-   {!! Form::close() !!}
+     <div class="btn-area">
+     {!! Form::submit('更新', ['class' => 'form-button']) !!}
+     {!! Form::close() !!}
+     </div>
    
-    {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id], 'method' => 'delete']) !!}
-        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
-       
+   
+     <div class="btn-area">
+     {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id], 'method' => 'delete']) !!}
+        {!! Form::submit('削除', ['class' => 'form-button']) !!}
+     {!! Form::close() !!}
+     </div>
 
  
  @include("layouts.footer")

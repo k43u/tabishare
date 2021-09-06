@@ -3,7 +3,7 @@
 @section('content')
   <p class="lead-form">ユーザー登録</p>
 
-  <link rel="stylesheet" href="{{  asset('css/style.css') }}" />
+  <link rel="stylesheet" href="{{asset('css/style.css') }}" />
   
   {!! Form::open(['route' => 'signup.post']) !!}
     <div class="item">
@@ -27,7 +27,7 @@
     </div>
   
     <div class="btn-area">
-      {!! Form::submit('登録', ['class' => 'my-button']) !!}
+      {!! Form::submit('登録', ['class' => 'form-button']) !!}
     </div>
   {!! Form::close() !!}
   

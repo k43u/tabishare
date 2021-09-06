@@ -1,49 +1,81 @@
-* {
-   box-sizing: border-box;
-}
 
 body {
-   margin: 0;
-   padding: 0;
-   background-color: #fff;
+   background-color: #FFFAF0;
+   width:100%;
+   margin-right: auto;
+   margin-left : auto;
 }
+
 
 header {
     width: 100%;
-    padding: 30px 4% 10px;
-    background-color: #DDDDDD;
+    padding: 10px 4% 10px;
     display: flex;
     align-items: center;
 }
 
-
-
-h1 {
+ h1 {
    margin: 0; padding: 0;
-   font-size: 20px;
+   font-size: 30px;
+   color: black;
+   font-family: "Hannotate SC";
+   padding:30;
 }
 
+a {
+    text-decoration:none; 
+}
+
+/*マイページとユーザー名*/
 h2 {
    margin: 0; padding: 50px;
    font-size: 20px;
+   font-family: "Hannotate SC" ;
 }
 
-
-a {	
-   text-decoration: none;
-   color: #4b4b4b;
+.navigation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+}
+.navigation ul {
+  width: 100%;
+  font-family: "Hannotate SC";
 }
 
-ul {
-   list-style: none;
-   margin: 0;
-   display: flex;
+.navigation li {
+  display: inline;
+  margin-right:2%;
+  margin-left:2%;
 }
 
-li {
-   margin: 0 0 0 15px;
-   font-size: 14px;
+.btn-border-bottom {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.4rem 10;
+  text-decoration: none;
+  color: #666666;  
 }
+
+.btn-border-bottom:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:100%;
+  left: 0;
+  border-radius:4px;
+  background:#666666;
+  transition: .4s;
+}
+
+.btn-border-bottom:hover:before {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
+}
+
 
 .grid {
   display: grid;
@@ -52,123 +84,50 @@ li {
   justify-content: center;
 }
 
-.l-wrapper_01 {
-  margin: 1rem auto;
-  width: 95%;
+.box1{
+    padding: 0.2em 0.5em;
+    margin: 2em 10;
+    background: #F5DEB3;
+    box-shadow: 0px 0px 0px 10px #F5DEB3;
+    border: dashed 2px #800000;
+    height: 420;
 }
 
-.l-wrapper_01:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-  transition: all .5s;
+
+.box1 h4{
+  text-align: left;
+  font-family: "Hannotate SC";
+  font-size: 20px;
 }
 
-.card_01 {
-  background-color: #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .16);
-  color: #212121;
-  text-decoration: none;
+
+.box1 p {
+    margin: 0; 
+    padding: 0;
+    text-align: center;
 }
 
-.card__header_01 {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card__title_01 {
-  padding: 1rem 1.5rem 0;
-  font-size: 1.6rem;
-  order: 1;
-  margin-bottom: 0.6rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.card__thumbnail_01 {
-  margin: 0;
-  order: 0;
-}
-
-.card__image_01 {
+.box__image_01 {
   width: 100%;
 }
 
-.card__body_01 {
-  padding: 0 1.5rem;
+.box__text_01 {
+ text-align: center;
 }
 
-.card__text_01 {
-  font-size: .8rem;
-  text-align:center;
-  text-decoration: none;
-	padding-bottom: 0;
-}
-
-.card__text_01 + .card__text_01 {
-  margin-top: .5rem;
-}
-
-.card__footer_01 {
-  padding: 1rem;
-  border-top: 1px solid #ddd;
-}
-
-.button_01 {
-  display: inline-block;
-  text-decoration: none;
-  transition: background-color .3s ease-in-out;
+.card__text_02 {
   text-align: center;
 }
 
-.button_01 a {
-  text-decoration: none;
+p{
+  font-family: "Hannotate SC";
+  text-align: center; 
 }
 
-.button_01.-compact {
-  padding: .5rem 1rem;
-  border-radius: .25rem;
-  background-color: #FF9966;
-  color: #fff;
-  font-weight: bold;
-	text-decoration: none;
-}
-
-.button_01.-compact:hover,
-.button_01.-compact:focus {
-  background-color:#FF6633;
-}
-
-.pagenation li {
-display: inline-block;
-height:40px;line-height:40px;
-width:40px;text-align:center;
-border:1px #ccc solid;color:#000053;
-border-radius: 5px / 5px;
-}
-
-.pagenation .pre {background-color:#ccc;color:#333;}
-.pagenation .this {background-color:#777;color:#fff;}
-.pagenation  li a{display:block;text-decoration: none;}
-.pagenation li a:hover {color: #fff;text-decoration: none;background-color: #003396;}
-.pagenation {justify-content:center;}
-
-
-footer{
-    background-color: #DDDDDD;
-	width: 100%;
-	text-align: center;
-	padding: 10px;
-}
-
-.my-button {
-  color: white;
-  padding: 16px;
-  width: 200px;
-  border-radius: .375rem;
-  background-color: #006198;
-  border: none;
-  font-weight: bold;
-  font-size: 1.0rem;
+form{
+  width:460px;
+  margin:0 auto;
+  margin-bottom: 100px;
 }
 
 .lead-form{
@@ -177,88 +136,186 @@ footer{
   font-size: 30px;
 }
 
-form{
-  width:460px;
-  margin:0 auto;
-  margin-bottom: 100px;
-}
 .item{
-  overflow: hidden;
-  margin-bottom: 20px;
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+	font-family: "Hannotate SC";
 }
-.label{
-  float: left;
-  margin-right: 25px;
-  width:135px;
-  padding-left: 10px;
+
+.item input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+	background: transparent;
 }
-.inputs{
-  float: left;
-  width:300px;
+
+.item input[type='text']:focus {
+	border-bottom: 2px solid #999999;
+	outline: none;
 }
-input[type="text"],input[type="email"]{
-  border: solid 1px #aaa;
-  border-radius:5px;
-  padding:10px;
-  font-size: 15px;
+
+.item input[type='email'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+	background: transparent;
 }
-textarea{
-  border: solid 1px #aaa;
-  border-radius:5px;
-  padding: 10px;
-  height: 160px;
-  font-size: 15px;
-  overflow: scroll;
+
+.item input[type='email']:focus {
+	border-bottom: 2px solid #999999;
+	outline: none;
+}
+
+.item input[type='password'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+	background: transparent;
+}
+
+.item input[type='password']:focus {
+	border-bottom: 2px solid #999999;
+	outline: none;
 }
 
 .btn-area{
   text-align: center;
 }
 
+.form-button {
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  font-family: "Hannotate SC";
+  width: 100px;
+  padding: 10px;
+  justify-content:center;
+}
+
+.form-button:hover {
+  color: #fff;
+  background: #808080;
+}
+
+.item2 {
+  font-family: "Hannotate SC";
+  width:500px;
+}
+
+.item2 input[type="text"] {
+  font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+	background: transparent;
+}
+
+.item2 input[type='text']:focus {
+	border-bottom: 2px solid #da3c41;
+	outline: none;
+}
+
+textarea{
+  
+  justify-content:center;
+  overflow: scroll;
+  padding: 0.5em 0.5em;
+  margin: 50px 50px 80px 80px;
+  font-weight: bold;
+  border: solid 2px #000000;
+}
+
+.box2 {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    border: solid 2.0px #000000;
+    font-family: "Hannotate SC";
+    margin:50;
+}
+
 button{
 display:inline-block;
 }
 
-.box14{
+.box3{
     padding: 0.2em 0.5em;
     margin: 2em 0;
-    background: #d6ebff;
-    box-shadow: 0px 0px 0px 10px #d6ebff;
-    border: dashed 2px white;
+    background: #F5DEB3;
+    box-shadow: 0px 0px 0px 10px #F5DEB3;
+    border: dashed 2px #800000;
 }
-.box14 p {
-    margin: 0; 
-    padding: 0;
-    font-size: 50px;
-    text-align:center;
+
+
+title {
+  text-align: center; 
+  font-family: "Hannotate SC";
 }
-.box18{
-    margin:2em 0;
-    position: relative;
-    padding: 0.25em 1em;
-    border: solid 2px #ffcb8a;
-    border-radius: 3px 0 3px 0;
+
+.box3 p{
+  text-align: center;
+  font-family: "ヒラギノ角ゴシック";
 }
-.box18:before,.box18:after
-{
-    content: '';
-    position: absolute;
-    width:10px;
-    height: 10px;
-    border: solid 2px #ffcb8a;
-    border-radius: 50%;
+
+h3 {
+  text-align: center;
+  font-family: "Hannotate SC";
+  border-bottom: 6px double #000;
 }
-.box18:after {
-    top:-12px;
-    left:-12px;
+
+.btn-sticky {
+  margin-top: 20;
+  font-family: "Hannotate SC";
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #E0FFFF;/*左線*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
 }
-.box18:before {
-    bottom:-12px;
-    right:-12px;
+.btn-sticky:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
 }
-.box18 p {
-    margin: 0; 
-    padding: 0;
-    font-size: 20px;
-    text-align:center;
+
+.pagination {
+    text-align: center;
+}
+
+/* ページ送りを横並びに */
+.pagination li{
+    display: inline-block;
+}
+
+footer{
+	width: 100%;
+	text-align: center; 
+	padding: 10px;
+	font-family: "Hannotate SC" ;
+	color:#AAAAAA;
+  bottom: 0; 
 }

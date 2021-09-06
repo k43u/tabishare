@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Trip;
-
+use App\User;
+use App\Image;
 
 class TripsController extends Controller
 {
@@ -17,13 +18,15 @@ class TripsController extends Controller
     {
         if(\Auth::check()) {
             // ログイン中
-            $trips = Trip::all();
+            $trips = Trip::orderBy('id', 'desc')->paginate(3);
+
             return view('mypage',[
                 'trips' => $trips,
             ]);
         } else {
             // ログイン中でない
-            $trips = Trip::all();
+            $trips = Trip::orderBy('id', 'desc')->paginate(3);
+
             return view('top',[
                 'trips' => $trips,
             ]);
@@ -76,9 +79,14 @@ class TripsController extends Controller
     {
         $trip = Trip::findOrFail($id);
 
-        return view('trips.show', [
-            'trip' => $trip,
-        ]);
+        $user_id = \Auth::id();
+        
+        $user_images = Image::whereUser_id($user_id)->get();
+         return view('trips.show', [
+             'trip' => $trip,
+             'user_images' => $user_images,
+         ]);
+
     }
     
     public function yourtrips()
@@ -88,7 +96,7 @@ class TripsController extends Controller
        
             $user = \Auth::user();
             
-            $trips = $user->trips()->orderBy('created_at', 'desc')->paginate(10);
+            $trips = $user->trips()->orderBy('created_at', 'desc')->paginate(2);
         }
         
         return view('trips.yourtrips', [
@@ -119,6 +127,22 @@ class TripsController extends Controller
         // トップページへリダイレクトさせる
         return redirect('/');
     }
-
+   
+    public function favorites()
+    {
+        
+        $user = \Auth::user();
+        
+        $user->loadRelationshipCounts();
+        $favorites = $user->favorites()->paginate(2);
+        
+        return view('trips.favorites', [
+            
+            'user' => $user,
+            'trips' => $favorites,
+        ]);
+        
+    }
+    
 }
 

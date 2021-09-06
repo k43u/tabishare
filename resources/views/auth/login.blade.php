@@ -19,7 +19,7 @@
   
 
   <div class="btn-area">
-    {!! Form::submit('ログイン', ['class' => 'my-button'])!!}
+    {!! Form::submit('ログイン', ['class' => 'form-button'])!!}
   </div>
 
  {!! Form::close() !!}

@@ -21,7 +21,7 @@ class UsersController extends Controller
     {
         $user = \Auth::user();
 
-        return view('users.usersedit', [
+        return view('users.edit', [
             'user' => $user,
         ]);
     }
@@ -47,5 +47,5 @@ class UsersController extends Controller
 
         return redirect('/');
     }
- 
+    
 }
