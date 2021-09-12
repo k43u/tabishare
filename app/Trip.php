@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Image;
 
 class Trip extends Model
 {
@@ -17,5 +18,9 @@ class Trip extends Model
     {
         return $this->belongsToMany(User::class,'favorites','user_id','trip_id')->withTimestamps();
     }
-     
+    
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

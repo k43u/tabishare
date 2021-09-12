@@ -61,8 +61,7 @@ class ImageController extends Controller
         $user_id = Auth::id();
         
         $user_images = Image::whereUser_id($user_id)->get();
-        return view('trips.show', ['user_images' => $user_images]);
-        dd("動いていますか？");
+        return view('trips.show', ['trip_images' => $trip_images]);
 
     }
 

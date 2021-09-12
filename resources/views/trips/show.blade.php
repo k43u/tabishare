@@ -2,19 +2,32 @@
 
 @section('content')
 
-    <div class="box3">
+ <div class="box3">
     <?php $user = Auth::user(); ?>
     <p>投稿者 {{ $user->name }}</P>
     <h3>{{$trip->title}}</h3>
-    
-    @foreach ($user_images as $user_image)
-        <img src="{{ $user_image['image_url'] }}">
-        <br>
-    @endforeach
-　
    
-    <p>{{ $trip->content }}</p>
+    
+    <div class="scrolling-wrapper">
+    <div class="image-wrap">
+    @if (count($trip_images) > 0)
+    @foreach ($trip_images as $trip_image)
+    <img src="{{ $trip_image->image_url }}">
+    @endforeach
+    @endif
+    </div>
+    </div>
+    
+     <p>{{ $trip->content }}</p>
+    
+ </div>   
+
+    
+    
     </div>   
 
+ 
+   
+  
 @include("layouts.footer")
 @endsection

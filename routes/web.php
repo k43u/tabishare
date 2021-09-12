@@ -33,15 +33,15 @@ Route::group(['middleware' => ['auth']], function () {
   });
     Route::resource('trips', 'TripsController');
     Route::get('yourtrips', 'TripsController@yourtrips')->name('trips.yourtrips');
-    Route::get('users/me', 'UsersController@edit')->name('users.edit');
-    Route::put('users/me', 'UsersController@update')->name('users.update');
     Route::get('favorite', 'TripsController@favorites')->name('trips.favorites');
+    
+
 });
 
-//画像ファイルをアップロードするボタンを設置するページへのルーティング
-Route::get('/upload/image', 'ImageController@input');
-//画像ファイルをアップロードする処理のルーティング
-Route::post('/upload/image', 'ImageController@upload');
-//アップロードした画像ファイルを表示するページのルーティング
-Route::get('/output/image', 'ImageController@output');
-
+ //画像ファイルをアップロードするボタンを設置するページへのルーティング
+    Route::get('/upload/image', 'ImageController@input');
+   //画像ファイルをアップロードする処理のルーティング
+    Route::post('/upload/image', 'ImageController@upload');
+   //アップロードした画像ファイルを表示するページのルーティング
+    Route::get('/output/image', 'TripsController@show');
+    Route::get('/output/image', 'TripsController@top');

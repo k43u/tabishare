@@ -14,7 +14,6 @@
   <li>{!! link_to_route('trips.create', '投稿作成ページ', [], ['class' => 'btn-border-bottom']) !!}</li>
 　<li>{!! link_to_route('trips.yourtrips', 'あなたの旅一覧', [], ['class' => 'btn-border-bottom']) !!}</li>
 　<li>{!! link_to_route('trips.favorites', 'お気に入りの旅', [], ['class' => 'btn-border-bottom']) !!}</li>
-　<li>{!! link_to_route('users.edit', 'プロフィール', [], ['class' => 'btn-border-bottom']) !!}</li>
   <li>{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'btn-border-bottom']) !!}</li>
  </ul>
 @else

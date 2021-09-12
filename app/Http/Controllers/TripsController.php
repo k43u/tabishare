@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Trip;
 use App\User;
 use App\Image;
+use Illuminate\Support\Facades\Storage;
 
 class TripsController extends Controller
 {
@@ -18,15 +19,14 @@ class TripsController extends Controller
     {
         if(\Auth::check()) {
             // ログイン中
-            $trips = Trip::orderBy('id', 'desc')->paginate(3);
-
+            $trips = Trip::orderBy('id', 'desc')->paginate(8);
             return view('mypage',[
                 'trips' => $trips,
+                
             ]);
         } else {
             // ログイン中でない
-            $trips = Trip::orderBy('id', 'desc')->paginate(3);
-
+            $trips = Trip::orderBy('id', 'desc')->paginate(8);
             return view('top',[
                 'trips' => $trips,
             ]);
@@ -46,8 +46,9 @@ class TripsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:50', 
+            'title' => 'required|max:20', 
             'content' => 'required|max:5000',
+           'image.*' => 'required|image', //必須+画像であること
         ]);
 
         $trip = new Trip;
@@ -56,36 +57,65 @@ class TripsController extends Controller
         $trip->user_id = \Auth::id();
         $trip->save();
         
-        // \Auth::user()->trips()->create([
-        //     'title' => $request->title,
-        //     'content' => $request->content,
-        // ]);
         
+       foreach($request-> file('image') as $image) {
+            $path = Storage::putFile('trip_images', $image, 'public');
+            $image = new Image;
+            $image->trip_id = $trip->id;
+            $image->user_id = \Auth::id();
+            $image->image_url = 'https://k43ubucket.s3.ap-northeast-1.amazonaws.com/' . $path;
+            $image->path = $path;
+            $image->save();
+
+       }
+       
         return back();
+        
     }
     
-    public function destroy($id)
-    {
+   public function destroy(Request $request,$id)
+   
+    {   
         $trip = \App\Trip::findOrFail($id);
+        
+           foreach($trip->images as $image) {
+               
+               $path = $image->path;
+               
+               if (\Auth::id() === $image->user_id) {
+                 $image->delete();
+               }
+               
+               Storage::disk('s3')->delete($path);
+               
+           }
+        
+       
+        
 
         if (\Auth::id() === $trip->user_id) {
             $trip->delete();
         }
+        
+        
 
         return redirect('/');
     }
     
-    public function show($id)
+    
+     public function show($id)
+    
     {
         $trip = Trip::findOrFail($id);
 
         $user_id = \Auth::id();
         
-        $user_images = Image::whereUser_id($user_id)->get();
+        $trip_images = Image::where('trip_id',$id)->get();
+        
          return view('trips.show', [
              'trip' => $trip,
-             'user_images' => $user_images,
-         ]);
+            'trip_images' => $trip_images,
+     ]);
 
     }
     
@@ -96,7 +126,7 @@ class TripsController extends Controller
        
             $user = \Auth::user();
             
-            $trips = $user->trips()->orderBy('created_at', 'desc')->paginate(2);
+            $trips = $user->trips()->orderBy('created_at', 'desc')->paginate(8);
         }
         
         return view('trips.yourtrips', [
@@ -123,8 +153,38 @@ class TripsController extends Controller
         $trip->title = $request->title;
         $trip->content = $request->content;
         $trip->save();
+        
+      
+       
+        if ($request->hasFile('image')) {
+           
+           foreach($trip->images as $image) {
+               
+               $path = $image->path;
+               
+               if (\Auth::id() === $image->user_id) {
+                 $image->delete();
+               }
+               
+               Storage::disk('s3')->delete($path);
+               
+           }
+           
+           
+          foreach($request-> file('image') as $image) {
+            $path = Storage::putFile('trip_images', $image, 'public');
+            $image = new Image;
+            $image->trip_id = $trip->id;
+            $image->user_id = \Auth::id();
+            $image->image_url = 'https://k43ubucket.s3.ap-northeast-1.amazonaws.com/' . $path;
+            $image->path = $path;
+            $image->save();
+          
+           }
+           
+        }
 
-        // トップページへリダイレクトさせる
+       // トップページへリダイレクトさせる
         return redirect('/');
     }
    
@@ -134,7 +194,7 @@ class TripsController extends Controller
         $user = \Auth::user();
         
         $user->loadRelationshipCounts();
-        $favorites = $user->favorites()->paginate(2);
+        $favorites = $user->favorites()->paginate(8);
         
         return view('trips.favorites', [
             

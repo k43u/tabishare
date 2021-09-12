@@ -98,6 +98,7 @@ h2 {
   text-align: left;
   font-family: "Hannotate SC";
   font-size: 20px;
+  text-align: center;
 }
 
 
@@ -109,6 +110,7 @@ h2 {
 
 .box__image_01 {
   width: 100%;
+  height: 160px;
 }
 
 .box__text_01 {
@@ -244,10 +246,12 @@ textarea{
   justify-content:center;
   overflow: scroll;
   padding: 0.5em 0.5em;
-  margin: 50px 50px 80px 80px;
+  margin-top: 50px;
+  margin-left: 5px;
   font-weight: bold;
   border: solid 2px #000000;
 }
+
 
 .box2 {
     padding: 0.5em 1em;
@@ -283,7 +287,7 @@ title {
 h3 {
   text-align: center;
   font-family: "Hannotate SC";
-  border-bottom: 6px double #000;
+ font-size: 150%;
 }
 
 .btn-sticky {
@@ -301,6 +305,26 @@ h3 {
   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
   transform: translateY(2px);
 }
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width:100%;
+}
+.scrolling-wrapper .item {
+  display: inline-block;
+}
+
+.image-wrap{
+    margin: 10px 5px;
+    text-align : center;
+}
+
+.image-wrap img {
+    height: 300px;
+}
+
 
 .pagination {
     text-align: center;

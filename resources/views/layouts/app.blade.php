@@ -7,6 +7,7 @@
     </head>
 
     <body>
+        <div id="layout">
         @include('layouts.navbar')
 
         <div class="container">
@@ -15,6 +16,6 @@
 
             @yield('content')
         </div>
-
+        </div>
     </body>
 </html>

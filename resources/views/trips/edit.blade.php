@@ -5,7 +5,7 @@
     <p class="lead-form">あなたの旅を編集する</p>
 
 
-   {!! Form::model($trip, ['route' => ['trips.update', $trip->id,$trip->title,$trip->content], 'method' => 'put']) !!}
+   {!! Form::model($trip, ['route' => ['trips.update', $trip->id,$trip->title,$trip->content], 'method' => 'put','files' => true]) !!}
      
      
       <div class="item">
@@ -19,13 +19,12 @@
           <textarea name="content" rows="5" cols="50">{{ $trip->content }}</textarea>
       </div>
       
-      <form action="/upload/image" method="POST" enctype="multipart/form-data">
-   　　 @csrf
+      
 　　　　<div class="box2">
         <label for="photo">旅の写真</label>
-        <input type="file" class="form-control" name="file">
+        <input type="file" class="form-control" name="image[]" multiple>
     　　</div>
-      </form>
+      
 
      <div class="btn-area">
      {!! Form::submit('更新', ['class' => 'form-button']) !!}
@@ -34,7 +33,7 @@
    
    
      <div class="btn-area">
-     {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id], 'method' => 'delete']) !!}
+     {!! Form::model($trip, ['route' => ['trips.destroy', $trip->id,], 'method' => 'delete']) !!}
         {!! Form::submit('削除', ['class' => 'form-button']) !!}
      {!! Form::close() !!}
      </div>
