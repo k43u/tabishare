@@ -8,16 +8,13 @@ use App\User;
 
 class UsersController extends Controller
 {
-   
-    public function destroy($id)
+    public function delete()
     {
-        $trip = \App\User::findOrFail($id);
-
-        if (\Auth::id() === $user->user_id) {
-            $user->delete();
-        }
-
-        return redirect('/');
+        return view('users.delete');
     }
     
+    public function destroy()
+    {
+        
+    }
 }

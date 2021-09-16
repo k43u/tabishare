@@ -13,7 +13,7 @@
         @endif
       </figure>
        <div class="card__footer_01">
-         <p class="box__text_01"> {!! link_to_route('trips.show', 'この旅の詳細を見る', ['trip' => $trip->id], ['class' => "btn-border-bottom"]) !!}</>
+         <p class="box__text_01"> {!! link_to_route('trips.show', 'この旅の詳細を見る', ['trip' => $trip->id], ['class' => "btn-border-bottom"]) !!}</p>
          
         @if(Auth::check())
          @if (Auth::id() == $trip->user_id)

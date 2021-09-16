@@ -7,6 +7,8 @@ use App\Trip;
 use App\User;
 use App\Image;
 use Illuminate\Support\Facades\Storage;
+use App\Rules\SampleRule;
+
 
 class TripsController extends Controller
 {
@@ -25,6 +27,7 @@ class TripsController extends Controller
                 
             ]);
         } else {
+            // dd('test1');
             // ログイン中でない
             $trips = Trip::orderBy('id', 'desc')->paginate(8);
             return view('top',[
@@ -48,7 +51,8 @@ class TripsController extends Controller
         $request->validate([
             'title' => 'required|max:20', 
             'content' => 'required|max:5000',
-           'image.*' => 'required|image', //必須+画像であること
+           'image.*' => 'required|max:10240',
+           'image' => [new SampleRule]
         ]);
 
         $trip = new Trip;
@@ -69,7 +73,7 @@ class TripsController extends Controller
 
        }
        
-        return back();
+        return redirect('/');
         
     }
     

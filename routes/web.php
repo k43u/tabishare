@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('trips', 'TripsController');
     Route::get('yourtrips', 'TripsController@yourtrips')->name('trips.yourtrips');
     Route::get('favorite', 'TripsController@favorites')->name('trips.favorites');
+    Route::get('delete', 'UsersController@delete')->name('users.delete');
     
 
 });
@@ -45,3 +46,5 @@ Route::group(['middleware' => ['auth']], function () {
    //アップロードした画像ファイルを表示するページのルーティング
     Route::get('/output/image', 'TripsController@show');
     Route::get('/output/image', 'TripsController@top');
+
+ 

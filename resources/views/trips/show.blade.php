@@ -3,9 +3,8 @@
 @section('content')
 
  <div class="box3">
-    <?php $user = Auth::user(); ?>
-    <p>投稿者 {{ $user->name }}</P>
-    <h3>{{$trip->title}}</h3>
+    
+    <p class="lead-form">{{$trip->title}}</p>
    
     
     <div class="scrolling-wrapper">

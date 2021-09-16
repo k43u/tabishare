@@ -5,7 +5,10 @@
 
   <link rel="stylesheet" href="{{asset('css/style.css') }}" />
   
+  
+  
   {!! Form::open(['route' => 'signup.post']) !!}
+  
     <div class="item">
       <label class="label">ユーザー名<br>（ニックネーム）</label>
       <input class="inputs" type="text" name="name">
@@ -29,6 +32,7 @@
     <div class="btn-area">
       {!! Form::submit('登録', ['class' => 'form-button']) !!}
     </div>
+  
   {!! Form::close() !!}
   
   @include("layouts.footer")

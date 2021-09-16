@@ -12,13 +12,13 @@
       </div>
    
    
-      <div class="comment">
+      <div class="item">
        <label class="label2">コメント(5000字以内)</label2>
-     　<textarea name="content" rows="50" cols="100"></textarea>
+     　<textarea name="content" rows="20" cols="70"></textarea>
       </div>
       
 　　<div class="box2">
-        <label for="photo">旅の写真</label>
+        <label for="photo">旅の写真(50MB以内)</label>
         <input type="file" class="form-control" name="image[]" multiple>
 　　</div>
 　　
