@@ -5,8 +5,6 @@
 
   <link rel="stylesheet" href="{{asset('css/style.css') }}" />
   
-  
-  
   {!! Form::open(['route' => 'signup.post']) !!}
   
     <div class="item">
@@ -32,7 +30,7 @@
     <div class="btn-area">
       {!! Form::submit('登録', ['class' => 'form-button']) !!}
     </div>
-  
+  </div>
   {!! Form::close() !!}
   
   @include("layouts.footer")

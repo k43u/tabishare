@@ -2,7 +2,7 @@
 
 @section('content')
   <link rel="stylesheet" href="{{asset('css/style.css') }}" />
-    <p class="lead-form">あなたの旅を編集する</p>
+    <p>あなたの旅を編集する</p>
 
 
    {!! Form::model($trip, ['route' => ['trips.update', $trip->id,$trip->title,$trip->content], 'method' => 'put','files' => true]) !!}

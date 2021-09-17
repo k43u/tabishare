@@ -17,7 +17,7 @@
     </div>
     </div>
     
-     <p>{{ $trip->content }}</p>
+     <div class="comment">{{ $trip->content }}</div>
     
  </div>   
 

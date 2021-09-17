@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="cssgrid">
 @foreach ($trips as $trip)
  <div class="box1">
       <div class="card__header_01">
@@ -13,7 +13,7 @@
         @endif
       </figure>
        <div class="card__footer_01">
-         <p class="box__text_01"> {!! link_to_route('trips.show', 'この旅の詳細を見る', ['trip' => $trip->id], ['class' => "btn-border-bottom"]) !!}</p>
+         <div class="box__text_01"> {!! link_to_route('trips.show', 'この旅の詳細を見る', ['trip' => $trip->id], ['class' => "btn-border-bottom"]) !!}</div>
          
         @if(Auth::check())
          @if (Auth::id() == $trip->user_id)
@@ -35,4 +35,7 @@
  </div>  
 @endforeach
 </div>
+
+<div class="pagenation">
 {{ $trips->links() }}
+</div>

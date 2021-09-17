@@ -2,7 +2,7 @@
 
 @section('content')
   <link rel="stylesheet" href="{{asset('css/style.css') }}" />
-    <p class="lead-form">ログイン</p>
+    <p>ログイン</p>
 
 
    {!! Form::open(['route' => 'login.post']) !!}

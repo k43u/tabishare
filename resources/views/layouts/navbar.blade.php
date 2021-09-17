@@ -15,7 +15,6 @@
 　<li>{!! link_to_route('trips.yourtrips', 'あなたの旅一覧', [], ['class' => 'btn-border-bottom']) !!}</li>
 　<li>{!! link_to_route('trips.favorites', 'お気に入りの旅', [], ['class' => 'btn-border-bottom']) !!}</li>
   <li>{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'btn-border-bottom']) !!}</li>
-  <li>{!! link_to_route('users.delete', '退会', [], ['class' => 'btn-border-bottom']) !!}</li>
  </ul>
  </div>
 @else
