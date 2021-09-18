@@ -140,15 +140,24 @@ p{
 form{
   margin:0 auto;
   margin-bottom: 100px;
+   max-width: 500px;
 }
+
 
 
 .item{
-	position: relative;
-	width: 30%;
-	font-family: "Hannotate SC";
-	 margin: 40px 35%;
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 20px;
+  
+ 
 }
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 
 .item input[type='text'] {
 	font: 15px/24px sans-serif;
@@ -205,8 +214,10 @@ form{
 }
 
 .btn-wrapper {
-  display:inline-flex;
-  margin: 40px 630px;
+  display: flex;
+  justify-content:center;
+  padding-top: 20px;
+  padding-left: 30px;
 }
 
 
@@ -236,7 +247,7 @@ form{
 .item2 {
   font-family: "Hannotate SC";
   width:500px;
-  margin: 40px 35%;
+  justify-content:center;
   
 }
 
@@ -258,6 +269,8 @@ form{
 	outline: none;
 }
 
+
+
 textarea{
   
   justify-content:center;
@@ -276,9 +289,16 @@ textarea{
     font-weight: bold;
     border: solid 2.0px #000000;
     font-family: "Hannotate SC";
-    width:30%;
-    margin-left: 37%;
+    width:50%;
 }
+
+.box2-wrapper{
+  display: flex;
+  justify-content:center;
+  padding-top: 20px;
+}
+
+
 
 button{
 display:inline-block;

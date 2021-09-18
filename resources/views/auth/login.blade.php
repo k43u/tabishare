@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{asset('css/style.css') }}" />
     <p>ログイン</p>
 
-
+<div class="form-wrapper">
    {!! Form::open(['route' => 'login.post']) !!}
    
   <div class="item">
@@ -23,8 +23,8 @@
   </div>
 
  {!! Form::close() !!}
- 
+</div> 
  @include("layouts.footer")
 @endsection
-</html>
+
 

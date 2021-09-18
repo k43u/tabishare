@@ -12,15 +12,17 @@
       </div>
    
    
-      <div class="item">
+      <div class="item2">
        <label class="label2">コメント(5000字以内)</label2>
      　<textarea name="content" rows="20" cols="70"></textarea>
       </div>
-      
+    
+    <div class="box2-wrapper">  
 　　<div class="box2">
         <label for="photo">旅の写真(50MB以内)</label>
         <input type="file" class="form-control" name="image[]" multiple>
 　　</div>
+　  </div>
 　　
       <div class="btn-area">
           {!! Form::submit('投稿', ['class' => 'form-button'])!!}
