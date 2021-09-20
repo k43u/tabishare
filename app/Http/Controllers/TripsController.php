@@ -61,7 +61,8 @@ class TripsController extends Controller
         $trip->user_id = \Auth::id();
         $trip->save();
         
-        
+      if ($request->hasFile('image')) {
+          
        foreach($request-> file('image') as $image) {
             $path = Storage::putFile('trip_images', $image, 'public');
             $image = new Image;
@@ -73,6 +74,7 @@ class TripsController extends Controller
 
        }
        
+      }
         return redirect('/');
         
     }
