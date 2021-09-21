@@ -145,21 +145,29 @@ class TripsController extends Controller
    public function edit($id)
     {
         $trip = Trip::findOrFail($id);
-
-        // メッセージ編集ビューでそれを表示
+        
+         if (\Auth::id() === $trip->user_id) {
         return view('trips.edit', [
             'trip' => $trip,
         ]);
     }
-    
+    }
      public function update(Request $request, $id)
-    {
+    {   
+        $request->validate([
+            'title' => 'required|max:20', 
+            'content' => 'required|max:5000',
+           'image.*' => 'required|max:10240',
+           'image' => [new SampleRule]
+        ]);
+        
         $trip = Trip::findOrFail($id);
         
+        if (\Auth::id() === $trip->user_id) {
         $trip->title = $request->title;
         $trip->content = $request->content;
         $trip->save();
-        
+        }
       
        
         if ($request->hasFile('image')) {
