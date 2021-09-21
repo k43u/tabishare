@@ -151,7 +151,9 @@ class TripsController extends Controller
             'trip' => $trip,
         ]);
     }
+     return redirect('/');
     }
+    
      public function update(Request $request, $id)
     {   
         $request->validate([
